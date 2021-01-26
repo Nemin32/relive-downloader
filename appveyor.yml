@@ -5,7 +5,7 @@ environment:
   matrix:
     #- RUST_VERSION: 1.4.7
     #  GTK: gnome
-    - RUST_VERSION: 1.4.9
+    - RUST_VERSION: 1.49.0
       GTK: win64
       FEATURES: gtk_3_14
     #- RUST_VERSION: nightly
@@ -56,8 +56,6 @@ build_script:
   - rustc -V
   - mkdir .cargo
   - echo paths = ["."] > .cargo\config
-  - git clone -q --depth 50 -b pending https://github.com/Nemin32/relive-downloader relive
-  - cd relive
   - "echo Features: %FEATURES%"
   - cargo build --features "%FEATURES%"
 
